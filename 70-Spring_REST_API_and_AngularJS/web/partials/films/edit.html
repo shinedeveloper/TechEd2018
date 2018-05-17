@@ -1,0 +1,61 @@
+﻿<h1>The film</h1>
+<form role="form" name="myForm">
+    <table>
+        <tr>
+            <th>
+                <label for="id">Number</label>
+            </th>
+            <td>
+                <span id="id">{{film.id}}</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="name" ng-class="{error: myForm.name.$invalid}">Name</label>
+            </th>
+            <td>
+                <input id="name" name="name" ng-model="film.name" type="text"
+                       placeholder="Film name" required/>
+                <span ng-show="myForm.name.$dirty && myForm.name.$invalid">Name Required</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="externalLink">External Link</label></th>
+            <td>
+                <input id="externalLink"
+                       name="externalLink" ng-model="film.externalLink" type="text"
+                       placeholder="External Link" required/>
+                <span ng-show="myForm.externalLink.$dirty && myForm.externalLink.$invalid">
+                External Link Required</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="releaseYear">Release Year</label></th>
+            <td>
+                <input id="releaseYear"
+                       ng-model="film.releaseYear" type="text"
+                       placeholder="Year of original release"/>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="rating">Rating</label></th>
+            <td>
+                <input id="rating"
+                       ng-model="film.rating" type="text"
+                       placeholder="External Rating"/>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <button ng-click="saveFilm(film);"
+                        ng-disabled="isClean() || myForm.$invalid">
+                    {{buttonText}}
+                </button>
+                &nbsp;
+                &nbsp;
+                <a href="#/">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>

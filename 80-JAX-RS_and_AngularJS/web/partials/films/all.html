@@ -1,0 +1,32 @@
+<div>
+    <h3>
+        <a href="#/films/new">Add a film</a>
+    </h3>
+
+    <table>
+
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>External Link</th>
+            <th>Release Year</th>
+            <th>Rating</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="item in films">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td><a href="{{item.externalLink}}">External</a></td>
+            <td>{{item.releaseYear}}</td>
+            <td>{{item.rating}} %</td>
+            <td><a href="#/films/{{item.id}}">Edit</a></td>
+        </tr>
+
+    </table>
+
+    <div ng-show="films.length == 0">
+
+        <h4>No films found</h4>
+
+    </div>
+</div>

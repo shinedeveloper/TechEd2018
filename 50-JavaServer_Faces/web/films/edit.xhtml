@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:o="http://omnifaces.org/ui">
+<h:head>
+    <title>VideoBoss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <f:metadata>
+        <f:viewAction action="#{filmBean.loadFilm(param['id'])}"/>
+    </f:metadata>
+</h:head>
+<h:body>
+
+    <h1>Films details</h1>
+
+    <o:form useRequestURI="true">
+        <table>
+            <tr>
+                <th>Number</th>
+                <td>
+                    #{param["id"] ne null ? param["id"] : "New"}
+                    <h:inputHidden value="#{filmBean.film.version}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>
+                    <h:inputText value="#{filmBean.film.name}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>External/External Link</th>
+                <td>
+                    <h:inputText value="#{filmBean.film.externalLink}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Release year</th>
+                <td>
+                    <h:inputText value="#{filmBean.film.releaseYear}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>
+                    <h:inputText value="#{filmBean.film.rating}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <td>
+                    <h:commandButton action="#{filmBean.saveFilm()}"
+                                     value="Save"/>
+                </td>
+            </tr>
+        </table>
+
+    </o:form>
+
+</h:body>
+</html>
